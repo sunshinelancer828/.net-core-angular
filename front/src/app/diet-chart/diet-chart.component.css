@@ -1,0 +1,19 @@
+.mat-card{
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    margin: 10px auto;
+  }
+  .mat-form-field,.mat-card-actions,.mat-card-content h3,.Box{
+    width: 500px;
+    margin: 0 50px;
+  }
+  .mat-card-content h3{
+    color: rgb(255, 0, 64);
+  }
+  .mat-card-header{
+    font-size: 15px;
+    font-weight: bold;
+    color:cornflowerblue;
+    padding: 15px;
+  }

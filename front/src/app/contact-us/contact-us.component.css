@@ -1,0 +1,14 @@
+.main-div{
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.carddetail{
+  margin-top: 20px;
+}
+.cardtext{
+  font-size: xx-large;
+  font-weight: bold;
+}

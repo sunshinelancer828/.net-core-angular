@@ -1,0 +1,21 @@
+table{
+    width: 1200px;
+    margin: 20px auto;
+    border-radius: 10px;
+}
+.actionButtons{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.mat-card{
+  margin: 1rem;
+}
+.mat-card-header, .mat-card-subtitle{
+  position: relative;
+  left: 9rem;
+  width: 10rem;
+}  
+.btn{
+  width: 11rem;
+}

@@ -1,0 +1,53 @@
+<div *ngIf="((accountService.currentUser$ |async).user['userType']) == 'SA'" class="card-content">
+<div class="main">
+    <button class="btn btn--blue" color="primary" [routerLink]="'/add-assessment-form'">Add New Assessment Template</button>
+<mat-card  *ngFor="let assform of assForm ; let i=index">
+    <mat-card-title>{{assform.templateName}}</mat-card-title>
+    <mat-card-subtitle>	{{assform.description}}</mat-card-subtitle>
+    <div *ngFor="let section of assform.sections; let s=index">
+    <mat-card-content>Section Name : {{section.name}}	</mat-card-content> 
+    <mat-card-subtitle>Section Description :	{{section.description}}</mat-card-subtitle>
+       <div *ngFor="let question of section.questions; let q=index">
+        <mat-card-content> Question {{q+1}} : {{question.name}}	</mat-card-content>
+        <mat-card-subtitle>Help Text :	{{question.helpText}}</mat-card-subtitle>
+        <mat-card-content>Type of Question : {{question.questionType}}	</mat-card-content>
+        <div *ngFor="let c of question.choices">
+            <mat-card-content>{{c}}	</mat-card-content>
+        </div>
+       </div>
+    </div>
+    <!-- <img mat-card-image>	Card image. Stretches the image to the container width -->
+    <mat-card-actions>	
+        <a routerLink="edit-assessment-form/{{assform._id}}" mat-flat-button color="primary">Edit</a>
+        <!-- <a routerLink="user-assessment-form/{{assform._id}}" mat-flat-button color="primary">Fill</a> -->
+    </mat-card-actions> 
+   <!-- <mat-card-footer>	Section anchored to the bottom of the card</mat-card-footer> -->
+</mat-card>
+</div>
+</div>
+<div *ngIf="((accountService.currentUser$ |async).user['userType']) == 'DA'">
+    <div *ngFor="let assform of assForm ; let i=index">
+        <mat-card>
+            <mat-card-title>{{assform.templateName}}</mat-card-title>
+            <mat-card-subtitle>	{{assform.description}}</mat-card-subtitle>
+            <!-- <div *ngFor="let section of assform.sections; let s=index">
+            <mat-card-content>Section Name : {{section.name}}	</mat-card-content> 
+            <mat-card-subtitle>Section Description :	{{section.description}}</mat-card-subtitle>
+               <div *ngFor="let question of section.questions; let q=index">
+                <mat-card-content> Question {{q+1}} : {{question.name}}	</mat-card-content>
+                <mat-card-subtitle>Help Text :	{{question.helpText}}</mat-card-subtitle>
+                <mat-card-content>Type of Question : {{question.questionType}}	</mat-card-content>
+                <div *ngFor="let c of question.choices">
+                    <mat-card-content>{{c}}	</mat-card-content>
+                </div>
+               </div>
+            </div> -->
+            <!-- <img mat-card-image>	Card image. Stretches the image to the container width -->
+            <mat-card-actions>	
+                <!-- <a routerLink="edit-assessment-form/{{assform._id}}" mat-flat-button color="primary">Edit</a> -->
+                <button (click)="addAssessmentToUser(assform._id)" mat-flat-button color="primary">Add</button>
+            </mat-card-actions> 
+           <!-- <mat-card-footer>	Section anchored to the bottom of the card</mat-card-footer> -->
+        </mat-card>
+        </div>
+</div>

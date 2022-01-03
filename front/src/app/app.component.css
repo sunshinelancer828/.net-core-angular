@@ -1,0 +1,15 @@
+.marg{
+  margin: 10px 10px 10px 10px;
+}
+.marg-t{
+  margin-top: 10px;
+}
+.marg-l{
+  margin-left: 10px;
+}
+.marg-b{
+  margin-bottom: 10px;
+}
+.marg-r{
+  margin-right: 10px;
+}

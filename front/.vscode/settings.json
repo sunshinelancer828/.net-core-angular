@@ -1,0 +1,8 @@
+{
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ],
+    "appService.defaultWebAppToDeploy": "/subscriptions/7f13ba33-a090-42d0-99de-32f6f922e317/resourceGroups/Selektial/providers/Microsoft.Web/sites/dietowl",
+    "appService.deploySubpath": "dist\\sample"
+}

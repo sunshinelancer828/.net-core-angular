@@ -1,0 +1,80 @@
+<div *ngIf="(accountService.currentUser$ |async); else authorize">
+    <!-- <div class="grid-container">.user['userType']) == 'SA'
+      <div class="grid-item">
+        <button mat-fab color="primary" [routerLink]="'/add-subscription'">
+          <mat-icon>add_circle</mat-icon>
+        </button>
+      </div> 
+      <div class="grid-item mat-elevation-z8">
+  
+        <table mat-table [dataSource]="Subscriptions" matSort >
+          <ng-container matColumnDef="position" >
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> No. </th>
+            <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+          </ng-container>
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+          </ng-container>
+          <ng-container matColumnDef="subscriptionType">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Subscription Type </th>
+            <td mat-cell *matCellDef="let element"> {{element.subscriptionType}} </td>
+          </ng-container>
+          <ng-container matColumnDef="detail">
+            <th mat-header-cell *matHeaderCellDef> Detail </th>
+            <td mat-cell *matCellDef="let element"> {{element.detail}} </td>
+          </ng-container>
+          <ng-container matColumnDef="duration">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Duration </th>
+            <td mat-cell *matCellDef="let element"> {{element.duration}} {{element.durationType}}</td>
+          </ng-container>
+          <ng-container matColumnDef="amount">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Amount </th>
+            <td mat-cell *matCellDef="let element"> {{element.amount}} </td>
+          </ng-container>
+          <ng-container matColumnDef="offerAmount">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Offer Amount </th>
+            <td mat-cell *matCellDef="let element"> {{element.offerAmount}} </td>
+          </ng-container>
+          <ng-container matColumnDef="isActive">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Is Active </th>
+            <td mat-cell *matCellDef="let element"> {{element.isActive?'Yes':'No'}} </td>
+          </ng-container>
+          <ng-container matColumnDef="edit">
+            <th mat-header-cell *matHeaderCellDef> Edit </th>
+            <td mat-cell *matCellDef="let element"><a mat-button routerLink="/edit-subscription/{{element._id}}">Edit</a>
+            </td>
+          </ng-container>
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+      </div> 
+        </div>-->
+    <div class="card-content">
+      <div class="main">
+        <mat-card  class="card" *ngFor="let sub of Subscriptions">
+            <mat-card-header>
+                <h3>{{sub.name}}</h3>
+            </mat-card-header>
+            <mat-card-content>
+                <h3>Duration : {{sub.duration}}{{sub.durationType}}</h3>
+                <h3>Is Active : {{sub.isActive?'Yes':'No'}}</h3>
+            </mat-card-content>
+            <mat-card-footer>
+                <h3>Price : <span>Rs. {{sub.amount}} /-</span></h3>
+                <h3>Offer Price</h3>
+                <h1>Rs. {{sub.offerAmount}} /-</h1>
+            <a mat-button routerLink="add-user-subscription/{{sub._id}}">Subscribe</a>
+            </mat-card-footer>
+        </mat-card>
+    </div>
+    </div>
+
+  
+  
+  </div>
+  <ng-template #authorize>
+    <h4>You are not authorized to see this page</h4>
+  </ng-template>
+  

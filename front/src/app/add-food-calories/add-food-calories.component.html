@@ -1,0 +1,40 @@
+<mat-card>
+    <mat-card-header>
+      Add Food Calories
+    </mat-card-header>
+    <mat-card-content>
+      <mat-form-field appearance="fill">
+        <mat-label>Name</mat-label>
+        <input matInput placeholder="Name" [(ngModel)]="food.name" type="text" name="name" required>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Total Calories</mat-label>
+        <input matInput placeholder="Total Calories" [(ngModel)]="food.totalCalories" type="number" name="totalCalories" required>
+      </mat-form-field>
+      <!-- <mat-form-field appearance="fill">
+        <mat-label>food For</mat-label>
+        <mat-select matInput [(ngModel)]="food.foodType">
+          <mat-option value="CA">Client</mat-option>
+          <mat-option value="DA">Dietitian</mat-option>
+        </mat-select>
+      </mat-form-field> -->
+      <mat-form-field>
+        <input matInput placeholder="Type" [(ngModel)]="types.type" type="text" name="type" required>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Portion" [(ngModel)]="types.portion" type="text" name="portion" required>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Portion Type" [(ngModel)]="types.portionType" type="text" name="Portion Type"
+          required>
+      </mat-form-field>
+      <mat-form-field>
+        <textarea matInput placeholder="Count" [(ngModel)]="types.count" name="Count" required></textarea>
+      </mat-form-field>
+      <mat-card-actions>
+        <button mat-raised-button (click)="addfood()" color="primary" type="submit">Add</button>
+        <button type="reset" (click)="cancel()" mat-raised-button color="white">Cancel</button>
+      </mat-card-actions>
+    </mat-card-content>
+  </mat-card>
+  

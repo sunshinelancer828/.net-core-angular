@@ -1,0 +1,44 @@
+.mat-card{
+    display: flex;
+    flex-direction: row;
+    width: auto;
+    justify-content: center;
+  }
+  .mat-form-field,.mat-card-actions,.mat-card-content h3,.Box{
+    width: 500px;
+    margin: 0 50px;
+  }
+  .mat-card-content h3{
+    color: rgb(255, 0, 64);
+  }
+  .mat-card-header{
+    font-size: 15px;
+    font-weight: bold;
+    
+    padding: 15px;
+  }
+.cards{
+  width: 300px;
+  height: 300px;
+  background-color: cornflowerblue;
+  margin: 10px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+}
+.cards h3{
+  color: #fff;
+  text-align: center;
+  text-decoration: solid;
+  text-transform: capitalize;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 20px;
+  font-weight: 300;
+}
+.cards h4 b{
+  color: rgba(211, 7, 41, 0.938);
+  font-weight: 400;
+  font-size: 15px;
+}
+
+

@@ -1,0 +1,111 @@
+<!-- <mat-toolbar class="toolbar">
+  <div fxLayout="row" class="navbar"> -->
+    <!-- <div fxLayoutAlign="start center" fxFlex>
+      <a (click)="menuClose()" class="navigation__link" [routerLink]="'/home'"><img class="logo" src="../../assets/Logo.png" alt="logo"></a>
+    </div> -->
+    <!-- <div fxLayoutAlign="center center" fxFlex="80">
+     
+     
+    </div>
+    <div fxFlex="20" fxLayoutAlign="end center"> -->
+     
+      <!-- *ngIf="((accountService.currentUser$ |async) != null && accountService.currentUser$ |async).user['userType'] == 'DA'" -->
+      <!-- <mat-menu #menu="matMenu">
+        
+        
+      </mat-menu>
+    </div>
+  
+  </div>
+</mat-toolbar> -->
+<!-- <div *ngIf="((accountService.currentUser$ |async) != null && accountService.currentUser$ |async).user['userType'] == 'DA'">
+  <mat-card>
+      <mat-card-header>
+          <h3>Welcome to Dietitian</h3>
+      </mat-card-header>
+      <mat-card-content>
+          <a [routerLink]="'/my-clients'" mat-flat-button color="primary">My Clients</a>
+          <a [routerLink]="'/my-subscriptions'" mat-flat-button color="accent">My Subscriptions</a>
+      </mat-card-content>
+  </mat-card>
+</div> -->
+
+<!-- <div>
+<a class="floating-btn" (click)="document.getElementById('circularMenu1').classList.toggle('active');">
+  <a><ion-icon name="menu"></ion-icon></a>
+</a>
+
+
+  <menu class="items-wrapper">
+    <a href="#" class="menu-item"><ion-icon name="home"></ion-icon></a>
+    <a href="#" class="menu-item"><ion-icon name="person"></ion-icon></a>
+    <a href="#" class="menu-item"><ion-icon name="heart"></ion-icon></a>
+    <a href="#" class="menu-item"><ion-icon name="help"></ion-icon></a>
+  </menu>
+
+</div> -->
+
+<ng-template #loggedIn>
+  <a (click)="menuClose()" class="navigation__link" color="primary" [routerLink]="'/login'"> Login </a>
+</ng-template>
+
+<div *ngIf="loaderService.isLoading | async" class="loader-container">
+  <mat-spinner style="top:50%; left:50%;"></mat-spinner>
+</div>
+
+
+<div class="navigation">
+  <input type="checkbox" [(ngModel)]="isChecked" class="navigation__checkbox" id="navi-toggle">
+  <label for="navi-toggle" class="navigation__button">
+      <span class="navigation__icon">&nbsp;</span>
+  </label>
+  <div class="navigation__background">&nbsp;</div>
+  <nav class="navigation__nav" *ngIf="isChecked">
+      <ul class="navigation__list">
+        <li class="navigation__item"> <a (click)="menuClose()" class="navigation__link" [routerLink]="'/myprofile'" color="primary"
+          *ngIf="accountService.currentUser$ |async; else loggedIn">
+          {{((accountService.currentUser$ |async).user['firstName'])}} {{((accountService.currentUser$
+          |async).user['lastName'])}}</a></li>    
+        <li class="navigation__item"><a (click)="menuClose()" class="navigation__link" [routerLink]="'/home'"> <span><i class="fas fa-home"></i></span> Home </a></li>
+        <li class="navigation__item"><a (click)="menuClose()" class="navigation__link" [routerLink]="'/bmi-calculator'"> <span><i class="fas fa-calculator"></i></span> BMI Calculator
+        </a></li>
+        <li class="navigation__item"><a (click)="menuClose()" class="navigation__link" [routerLink]="'/about'"> <span><i class="fas fa-address-card"></i></span> About Us </a></li>
+        <li class="navigation__item"><a (click)="menuClose()" class="navigation__link" [routerLink]="'/contact'"> <span><i class="fas fa-address-book"></i></span> Contact </a></li>
+        <li class="navigation__item"><a (click)="menuClose()" class="navigation__link" [routerLink]="'/dashboard'" *ngIf="(accountService.currentUser$ |async) != null">
+          <i class="fas fa-user"></i>
+          Dashboard
+        </a></li>
+        <span *ngIf="(accountService.currentUser$ |async) != null">
+          <li class="navigation__item"> <a (click)="menuClose()" class="navigation__link" [routerLink]="'/list-subscription'"
+            *ngIf="((accountService.currentUser$ |async) != null && accountService.currentUser$ |async).user['userType'] == 'SA'">
+            <i class="fas fa-newspaper"></i>
+            Subscriptions </a></li>
+          <li class="navigation__item"> <a (click)="menuClose()" class="navigation__link" [routerLink]="'/list-assessment-form'"
+            *ngIf="((accountService.currentUser$ |async) != null && accountService.currentUser$ |async).user['userType'] == 'SA'">
+            <i class="fas fa-newspaper"></i>
+            Assessment Form </a></li>
+          <li class="navigation__item"> <a (click)="menuClose()" class="navigation__link" [routerLink]="'/food-calories'"
+            *ngIf="((accountService.currentUser$ |async) != null && accountService.currentUser$ |async).user['userType'] == 'SA'">
+            <i class="fas fa-newspaper"></i>
+            FoodCalories </a></li>          
+        </span>
+        <li class="navigation__item"> <span *ngIf="(accountService.currentUser$ |async) != null">
+          <a (click)="menuClose()" class="navigation__link" [routerLink]="'/my-subscriptions'"
+            *ngIf="((accountService.currentUser$ |async) != null && accountService.currentUser$ |async).user['userType'] != 'SA'">
+            My Subscriptions </a>
+        </span></li>
+        <li class="navigation__item"> <span *ngIf="(accountService.currentUser$ |async) != null">
+          <a (click)="menuClose()" class="navigation__link" [routerLink]="'/user-assessment-form'"
+            *ngIf="((accountService.currentUser$ |async) != null && accountService.currentUser$ |async).user['userType'] == 'CA'">
+            Fill Assessment Form </a>
+        </span></li>
+        <li class="navigation__item"> <span *ngIf="(accountService.currentUser$ |async) != null">
+          <a (click)="menuClose()" class="navigation__link" [routerLink]="'/user-assessment-form'"
+            *ngIf="((accountService.currentUser$ |async) != null && accountService.currentUser$ |async).user['userType'] == 'CA'">
+            Fill Assessment Form </a>
+        </span></li>
+        <!-- <li class="navigation__item"><a (click)="menuClose()" class="navigation__link" [routerLink]="'/profile'">Profile</a></li> -->
+        <li class="navigation__item" (click)="menuClose()"><a href="#" (click)="logout()" *ngIf="(accountService.currentUser$ |async) != null"  class="navigation__link">Logout</a></li>
+      </ul>
+  </nav>
+</div>

@@ -1,0 +1,12 @@
+.mat-card{
+    width: 1300px;
+    margin: 10px auto;
+    padding: 20px;
+}
+.main{
+    background-color: #fff;
+    padding: 2rem;
+    margin: 3rem;
+    position: relative;
+    top: -3rem;
+}

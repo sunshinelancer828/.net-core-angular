@@ -1,0 +1,57 @@
+<mat-card>
+    <mat-card-header>
+      Update User
+    </mat-card-header>
+    <mat-card-content>
+      <mat-form-field >
+        <input matInput placeholder="Email" [(ngModel)]="user.email" type="text" required>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Password" [(ngModel)]="user.password" type="password" name="password" required>
+      </mat-form-field>
+      <!-- <mat-form-field>
+        <mat-label>User Type</mat-label>
+        <mat-select matInput [(ngModel)]="user.userType">
+          <mat-option value="CA">Client</mat-option>
+          <mat-option value="DA">Dietitian</mat-option>
+        </mat-select>
+      </mat-form-field> -->
+      <mat-form-field>
+        <input matInput placeholder="First Name" [(ngModel)]="user.firstName" type="text" name="firstName" required>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Last Name" [(ngModel)]="user.lastName" type="text" name="lastName"
+          required>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="contact" [(ngModel)]="user.contact" name="contact" required>
+      </mat-form-field>
+      <mat-form-field>
+        <textarea matInput placeholder="address" [(ngModel)]="user.address" name="address" required></textarea>
+      </mat-form-field>
+     <div *ngIf="user.userType=='DA'">
+        <mat-form-field>
+            <textarea matInput placeholder="Business Name" [(ngModel)]="user.business.name" name="name" required></textarea>
+        </mat-form-field>
+        <!-- <mat-form-field>
+            <input matInput placeholder="logo" type="file" [(ngModel)]="user.business.logoPath" name="File" required>
+        </mat-form-field> -->
+        <mat-form-field>
+            <textarea matInput placeholder="description" [(ngModel)]="user.business.description" name="description" required></textarea>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Business email" [(ngModel)]="user.business.email" name="description" required>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Contact" [(ngModel)]="user.business.contact" name="contact" required>
+        </mat-form-field>
+        <mat-form-field>
+            <textarea matInput placeholder="Address" [(ngModel)]="user.business.address" name="address" required></textarea>
+        </mat-form-field>
+     </div>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" type="submit" (click)="updateUser()">Update</button>
+        <button mat-raised-button color="white" [routerLink]="'/dashboard'">Cancel</button>
+      </mat-card-actions>
+    </mat-card-content>
+  </mat-card>

@@ -1,0 +1,30 @@
+<div>
+    <mat-card>
+        <mat-card-header>
+            Complete Subscription 
+        </mat-card-header>
+        
+        <mat-card-content>
+              <h3>Subscription Name : {{(user_subscription.subscriptionDetails).name}}</h3>
+
+              <mat-form-field>
+                <input matInput placeholder="Start Date" [(ngModel)]="user_subscription.startDate" type="date" name="startdate" required>
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput placeholder="End Date" [(ngModel)]="user_subscription.endDate" type="date" name="enddate" required>
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput placeholder="Offer Amount" [(ngModel)]="user_subscription.subscriptionDetails.offerAmount" value="subscription.offerAmount" type="number" name="amount" required readonly>
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput placeholder="paidAmount" [(ngModel)]="user_subscription.paidAmount" type="number" name="pay amount" required>
+              </mat-form-field>
+              <mat-form-field>
+                <textarea matInput placeholder="Notes" [(ngModel)]="user_subscription.notes" type="text" name="Notes" required></textarea>
+              </mat-form-field>
+              <mat-card-actions>
+                <button mat-raised-button color="primary" (click)="ceateUserSub()">Complete Subscription</button>
+              </mat-card-actions>
+        </mat-card-content>
+    </mat-card>
+</div>

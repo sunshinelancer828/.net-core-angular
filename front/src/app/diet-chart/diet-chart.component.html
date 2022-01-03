@@ -1,0 +1,41 @@
+<mat-card>
+  <mat-card-header>
+    Add User Plan 
+ </mat-card-header>
+ <mat-card-content>
+ <h3> Active Subscription : {{subscriptionName}}</h3>
+ <div class="Box">
+  <div class="mealBox"  *ngFor="let meal of userMealPlan.Meals; let mealIndex = index">
+
+     <div *ngFor="let meals of meal.Foods; let m= index">
+      {{meal.Foods[m]?.name}}  <button (click)="removeFood(mealIndex,m)">Remove</button>
+     </div>
+
+  <mat-form-field>
+      <input  matInput  placeholder="Meal Type" [(ngModel)]="meal.MealType"  type="text" name="MealType"  required>
+ </mat-form-field>  
+  <mat-form-field>
+    <input type="text" placeholder="Start Typing..." matInput [formControl]="myControl" [matAutocomplete]="auto">
+    <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let option of filteredOptions | async" [value]="option.name">
+              {{option.name}}
+            </mat-option>
+          </mat-autocomplete>
+  </mat-form-field>
+  <button (click)="addFood(mealIndex)">Add Food</button>
+ </div>
+ <button mat-button (click)="addMeal()">
+     Add Meal
+ </button>
+ </div>
+    <mat-form-field>
+    <input  matInput  placeholder="From" [(ngModel)]="userMealPlan.DateFrom"  type="date" name="From"  required>
+    </mat-form-field>
+    <mat-form-field>
+      <input  matInput  placeholder="To" [(ngModel)]="userMealPlan.DateTo"  type="date" name="To"  required>
+    </mat-form-field>
+    <mat-card-actions>
+      <button mat-flat-button (click)="addUserMealPlan()">Add Plan</button>
+    </mat-card-actions>
+  </mat-card-content>
+</mat-card>

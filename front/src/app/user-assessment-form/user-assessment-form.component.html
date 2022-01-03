@@ -1,0 +1,62 @@
+<div>
+    <h3>User Assessment Form</h3>
+<div>
+    <mat-card>
+        <div class="templateSection">
+            <mat-card-title>{{template?.templateName}}</mat-card-title>
+        <mat-card-subtitle>	{{template?.description}}</mat-card-subtitle>
+        </div>
+        <div class="sectionDiv">
+            <div *ngFor="let section of template?.sections; let s=index">
+                <mat-card-content>Section Name : {{section.name}}	</mat-card-content> 
+                <mat-card-subtitle>Section Description :	{{section.description}}</mat-card-subtitle>
+                <div class="questionsSection">
+                    <div class="question" *ngFor="let question of section.questions; let q=index">
+                        <mat-card-content> Question {{q+1}} : {{question.name}}	</mat-card-content>
+                        <mat-card-subtitle>Help Text :	{{question.helpText}}</mat-card-subtitle>
+                        <!-- <mat-card-content>Type of Question : {{question.questionType}}	</mat-card-content> -->
+                            <!-- <input type="text" placeholder="answer" #answer [(ngModel)]="question.answer" name="answer"> -->
+
+                            <div *ngIf="showMultipleOptions(question.questionType)=='ShortAnswer'">
+                                <input type="text" #answer (change)="addAnswer(s,q,answer.value)" name="answer">
+                            </div>
+                            <div *ngIf="showMultipleOptions(question.questionType)=='MultipleChoice'">
+                                <h1>MultipleChoice</h1>
+                            </div>
+                            <div *ngIf="showMultipleOptions(question.questionType)=='Paragraph'">
+                                <textarea name="answer" cols="30" rows="10" [(ngModel)]="question.answer"></textarea>
+                            </div>
+                            <div *ngIf="showMultipleOptions(question.questionType)=='FileUpload'">
+                                <input type="file" placeholder="Upload file">
+                            </div>
+                            <div *ngIf="showMultipleOptions(question.questionType)=='Dropdown'">
+                                <select name="answer" id="answer" size="1" [(ngModel)]="question.answer">
+                                    <option *ngFor="let choice of question.choices" [ngValue]="choice">
+                                        {{choice}}
+                                    </option>
+                                </select>
+                            </div>
+                            <div *ngIf="showMultipleOptions(question.questionType)=='Checkboxes'">
+                                <h1>CheckBoxes</h1>
+                            </div>
+
+
+                        <!-- <input matInput type="text" [(ngModel)]="question.answer" placeholder="Answer"> -->
+                            <!-- <div *ngFor="let choice of question.choices">
+                            <input type="checkbox" id={{choice}} [(ngModel)]="question.answer" name={{choice}} value={{choice}}>{{choice}}
+                            </div> -->             
+                            <!-- <div *ngFor="let choice of question.choices">
+                                <input type="radio" value={{choice}} [(ngModel)]="question.answer"> {{choice}}
+                            </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <img mat-card-image>	Card image. Stretches the image to the container width -->
+        <mat-card-actions>	
+            <a (click)="addAssessmentForm()" mat-flat-button color="primary">Submit</a>
+        </mat-card-actions> 
+       <!-- <mat-card-footer>	Section anchored to the bottom of the card</mat-card-footer> -->
+    </mat-card>
+    </div>
+</div>

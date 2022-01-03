@@ -1,0 +1,71 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:400,400i,700");
+
+.fileInput {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+.fileInput + label {
+  font-size: 1em;
+  font-weight: 700;
+  color: white;
+  background-color: black;
+  display: inline-block;
+  padding: 1rem;
+}
+
+.fileInput:focus + label,
+.fileInput + label:hover {
+  background-color: red;
+}
+
+.header {
+  min-height: 90vh;
+  background: #ffffff;
+/* background: linear-gradient(to right, #2fecad, #00ffea); */
+  color: black;
+  clip-path: ellipse(100vw 60vh at 50% 50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem;
+  border-radius: 10px;
+}
+
+.details {
+  text-align: center;
+}
+
+.profile-pic {
+  height: 6rem;
+  width: 6rem;
+  object-fit: center;
+  border-radius: 50%;
+  border: 2px solid #fff;
+}
+
+.location p {
+  display: inline-block;
+}
+
+.location svg {
+  vertical-align: middle;
+}
+
+.stats {
+  display: flex;
+}
+
+.stats .col-4 {
+  width: 10rem;
+  text-align: center;
+}
+
+.heading {
+  font-weight: 400;
+  font-size: 1.3rem;
+  margin: 1rem 0;
+}

@@ -1,0 +1,57 @@
+<div class="card-content">
+  <mat-card>
+    <mat-card-header>
+      Register
+    </mat-card-header>
+    <mat-card-content>
+      <mat-form-field >
+        <input matInput placeholder="Email" [(ngModel)]="signup.email" type="text" name="email" required>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Password" [(ngModel)]="signup.password" type="password" name="password" required>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="First Name" [(ngModel)]="signup.firstName" type="text" name="firstName" required>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Last Name" [(ngModel)]="signup.lastName" type="text" name="lastName"
+          required>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="contact" [(ngModel)]="signup.contact" name="contact" required>
+      </mat-form-field>
+      <mat-form-field>
+        <textarea matInput placeholder="address" [(ngModel)]="signup.address" name="address" required></textarea>
+      </mat-form-field>
+      <!-- This section will be shown only for super admins -->
+     <div *ngIf="((accountService.currentUser$ |async) != null && accountService.currentUser$ |async).user['userType'] == 'SA'">
+        <mat-form-field>
+            <textarea matInput placeholder="Business Name" [(ngModel)]="signup.business.name" name="name" required></textarea>
+        </mat-form-field>
+        <!-- <mat-form-field>
+            <input matInput placeholder="logo" type="file" [(ngModel)]="signup.business.logoPath" name="File" required>
+        </mat-form-field> -->
+        <mat-form-field>
+            <textarea matInput placeholder="description" [(ngModel)]="signup.business.description" name="description" required></textarea>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Business email" [(ngModel)]="signup.business.email" name="description" required>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Contact" [(ngModel)]="signup.business.contact" name="contact" required>
+        </mat-form-field>
+        <mat-form-field>
+            <textarea matInput placeholder="Address" [(ngModel)]="signup.business.address" name="address" required></textarea>
+        </mat-form-field>
+     </div>
+     <!-- <div class="input-group">
+      <input type="file" #fileInput id="fileInput" (change)="stageFile()">
+    </div> -->
+      <mat-card-actions>
+        <button class="btn btn--blue" color="primary" type="submit" (click)="createUser()">Create</button>
+        <button type="reset" class="btn btn--white" color="white">Cancel</button>
+      </mat-card-actions>
+    </mat-card-content>
+  </mat-card>
+
+</div>  

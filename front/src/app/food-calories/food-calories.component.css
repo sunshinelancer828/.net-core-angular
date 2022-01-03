@@ -1,0 +1,68 @@
+table{
+    width: 1200px;
+    margin: 20px auto;
+    border-radius: 10px;
+}
+.mat-button{
+    margin: 20px auto;
+    background: cornflowerblue;
+}
+.addButton{
+    margin-bottom: 10px;
+}
+.grid-container{
+  display: grid;
+  grid-template-columns: auto;
+}
+
+table{
+    width: 1200px;
+    margin: 20px auto;
+    border-radius: 10px;
+}
+.actionButtons{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.mat-card{
+  margin: 1rem;
+}
+.mat-card-header, .mat-card-subtitle{
+  position: relative;
+  left: 9rem;
+  width: 10rem;
+}  
+.btn{
+  width: 11rem;
+}
+.mat-paginator{
+  justify-content: left !important;
+  padding: 0 8rem !important;
+}
+.mat-paginator-container {
+    display: flex;
+    padding: 0;
+    flex-wrap: wrap-reverse;
+    width: 100%;
+}
+.mat-sort-header-container{
+  justify-content: center;
+}
+.mat-card-content{
+  height: 65vh;
+}
+tr,td{
+  border: 1px solid rgb(119, 119, 119);
+  text-align: center;
+  height: 40px !important;
+}
+th{
+  border: 1px solid rgb(119, 119, 119);
+  text-align: center;
+  padding: 0 0 0 4.5em !important;
+}
+td:hover{
+  background-color: gray;
+  color: #fff;
+}

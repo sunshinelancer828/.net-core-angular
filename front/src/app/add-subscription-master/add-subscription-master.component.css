@@ -1,0 +1,16 @@
+.mat-card{
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    margin: 10px auto;
+  }
+  .mat-form-field,.mat-card-actions{
+    width: 500px;
+    margin: 0 50px;
+  }
+  .mat-card-header{
+    font-size: 15px;
+    font-weight: bold;
+    color:cornflowerblue;
+    padding: 15px;
+  }

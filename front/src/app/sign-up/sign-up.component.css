@@ -1,0 +1,19 @@
+.mat-card{
+    display: flex;
+    flex-direction: column;
+    margin: 10px 20px;
+  }
+  .mat-form-field,.mat-card-actions{
+    width: 500px;
+    padding: 0.5rem;
+    margin: 0;
+  }
+  .mat-card-header{
+    font-size: 15px;
+    font-weight: bold;
+    color:cornflowerblue;
+    padding: 15px;
+  }
+  .mat-card-content,.mat-card-header{
+    text-align: center;
+  }

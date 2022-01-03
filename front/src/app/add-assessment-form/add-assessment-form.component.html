@@ -1,0 +1,91 @@
+<mat-card>
+  <mat-form-field appearance="fill">
+    <!-- Main Template -->
+    <mat-label>Template Name</mat-label>
+    <input matInput placeholder="Template Name" [(ngModel)]="template.templateName" type="text" required>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Description</mat-label>
+    <input matInput placeholder="Description" [(ngModel)]="template.description" type="text" required>
+  </mat-form-field>
+
+  <!-- Sections -->
+  <div class="sectionsBox"  *ngFor="let section of template.sections; let sectionIndex = index">
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Section {{sectionIndex+1}} </mat-label>
+        <input matInput [(ngModel)]="section.name" type="text" required>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>
+          Section Description
+        </mat-label>
+        <input matInput placeholder="Description" [(ngModel)]="section.description" type="text" required>
+      </mat-form-field>
+      <mat-radio-group aria-label="Is Hidden" [(ngModel)]="section.isHidden">
+        <mat-label>
+          Is Hidden
+        </mat-label>
+        <mat-radio-button name="isHidden" [value]="true">Yes</mat-radio-button>
+        <mat-radio-button name="isHidden" [value]="false">No</mat-radio-button>
+      </mat-radio-group>
+      <!-- Questions -->
+      <div class="questionsBox"  *ngFor="let question of section.questions ;let questionIndex=index">
+        <mat-form-field appearance="fill">
+          <mat-label>
+            Question {{questionIndex+1}} </mat-label>
+          <input matInput [(ngModel)]="question.name" type="text" required> 
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>QuestionType</mat-label>
+          <mat-select [(ngModel)]="question.questionType">
+            <mat-option *ngFor="let questionType of question_Type" [value]="questionType.value">
+              {{questionType.viewValue}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <!-- choices -->
+
+        <div *ngFor="let choice of question.choices;let c=index">
+            <mat-chip>
+              Choice {{c+1}} : {{choice}} <button mat-button color="warn" (click)="removeChoice(sectionIndex,questionIndex,c)">-</button>
+            </mat-chip>
+        </div>
+        <div *ngIf="showMultipleOptions(question.questionType)">
+          <mat-form-field>
+          <input matInput [(ngModel)]="tempChoice" type="text" placeholder="Enter Choice Value" />
+        </mat-form-field>
+          <button mat-button color="accent" (click)="addChoice(sectionIndex,questionIndex)">Add Choice</button>
+        </div>
+        <mat-radio-group aria-label="Is Required" [(ngModel)]="question.isRequired">
+          <mat-label>
+            Is Required
+          </mat-label>
+          <mat-radio-button name="isRequired" [value]="true">Yes</mat-radio-button>
+          <mat-radio-button name="isRequired" [value]="false">No</mat-radio-button>
+        </mat-radio-group>
+        <mat-form-field appearance="fill">
+          <mat-label>Help Text</mat-label>
+          <input matInput placeholder="HelpText" [(ngModel)]="question.helpText" type="text" required>
+        </mat-form-field>
+        <div class="rightButton">
+          <button mat-flat-button color="warn" (click)="removeQuestion(sectionIndex,questionIndex)">Remove Question</button>
+        </div>
+      </div>
+      <div class="margin">
+        <button mat-raised-button color="primary" (click)="addQuestion(sectionIndex)">Add Question</button>
+      </div>
+      <div class="margin">
+        <button mat-flat-button color="warn" (click)="removeSections(sectionIndex)">Remove Section</button>
+      </div>
+    </div>
+  </div>
+  <div class="rightButton">
+    <button mat-raised-button color="accent" (click)="addSection()">Add new section</button>
+  </div>
+  <mat-card-actions>
+    <button mat-raised-button color="primary" (click)="addTemplate()" type="submit">Add</button>
+    <button type="reset" mat-raised-button color="white">Cancel</button>
+  </mat-card-actions>
+</mat-card>
+

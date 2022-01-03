@@ -1,0 +1,21 @@
+.mat-card{
+    width: 800px;
+    margin: 10px auto;
+    padding: 40px;
+}
+.templateSection{
+    border: 1px solid green;
+    padding: 15px;
+}
+.sectionDiv{
+    border: 1px solid blue;
+    padding: 15px;
+}
+.questionsSection{
+    border: 2px solid red;
+    padding: 15px;
+}
+.question{
+    border: 2px solid black;
+    padding: 15px;
+}

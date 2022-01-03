@@ -1,0 +1,18 @@
+table{
+    width: 1200px;
+    margin: 20px auto;
+    border-radius: 10px;
+}
+
+.addButton{
+    margin-bottom: 10px;
+}
+.grid-container{
+  background-color: #fff;
+  display: grid;
+  grid-template-columns: auto;
+  margin: 3rem;
+  position: relative;
+  top: -3rem;
+}
+

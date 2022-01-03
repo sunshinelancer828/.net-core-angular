@@ -1,0 +1,30 @@
+<mat-card>
+    <div class="card" *ngFor="let meal of userMealPlan?.meals">
+        <div class="cards">
+            <h3 class="card-title">{{meal.mealType}}</h3>
+            <div *ngFor="let food of meal.foods">
+                <h4> 
+                   <span> <b>Food</b> : {{food.name}} </span>  
+                </h4>
+                <h4><span> <b>Calories  </b> : {{food.totalCalories}}</span></h4>
+            </div>
+        </div> 
+    </div>
+    <!-- <mat-card-header>
+        Daily User Plan
+    </mat-card-header>
+    <mat-card-content>
+        <h1>Diet Plan From : {{userMealPlan?.dateFrom}}</h1>
+        <h1>Diet Plan To : {{userMealPlan?.dateTo}}</h1>
+        <div *ngFor="let meal of userMealPlan?.meals">
+            <h3>{{meal.mealType}}</h3>
+            <div *ngFor="let food of meal.foods">
+                <h4> 
+                   <span> <b>Food</b> : {{food.name}} </span> <span> <b>Type</b> : {{food.types?.type}} </span> <span> <b>Calories  </b> : {{food.totalCalories}}</span>
+                </h4>
+            </div>
+        </div>
+
+
+    </mat-card-content> -->
+</mat-card>

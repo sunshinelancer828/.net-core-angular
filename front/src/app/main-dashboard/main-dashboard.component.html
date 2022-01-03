@@ -1,0 +1,7 @@
+<!-- This is the main dashboard which displays the dashboard based on the user type -->
+<div *ngIf="accountService.currentUser$ | async">
+  <app-superadmin-dashboard *ngIf="((accountService.currentUser$ |async).user['userType']) == 'SA'">
+  </app-superadmin-dashboard>
+  <app-dietitian-dashboard *ngIf="((accountService.currentUser$ |async).user['userType']) == 'DA'"></app-dietitian-dashboard>
+  <app-client-dashboard *ngIf="((accountService.currentUser$ |async).user['userType']) == 'CA'"></app-client-dashboard>
+</div>
